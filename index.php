@@ -330,8 +330,83 @@ echo "<br>";
 $colors = ['red', 'green', 'blue'];
 $reversed = array_reverse($colors);
 print_r($reversed);
+echo "<br>";
+
+
+$info = [
+    ["name" => "Daniel", "age" => 7, "gender" => "Male", "height" => "6'5", "skinColor" => "Brown"],
+    ["name" => "Daniel", "age" => 7, "gender" => "Male", "height" => "6'5", "skinColor" => "Brown"],
+    ["name" => "Daniel", "age" => 7, "gender" => "Male", "height" => "6'5", "skinColor" => "Brown"],
+    ["name" => "Jade", "age" => 7, "gender" => "Male", "height" => "6'5", "skinColor" => "Brown"],
+    ["name" => "Daniel", "age" => 7, "gender" => "Male", "height" => "6'5", "skinColor" => "Brown"],
+    ["name" => "Daniel", "age" => 7, "gender" => "Male", "height" => "6'5", "skinColor" => "Brown"],
+];
+echo $info[0]["age"];
+echo "<br>";
+echo $info[0]["skinColor"];
+echo "<br>";
+
+echo $info[3]["name"];
+
+for($i = 0; $i < count($progLang); $i++){
+    echo "<br>";
+    echo "I am learning $progLang[$i]";
+}
+$outerArray = count($info);
+for($i = 0; $i < $outerArray; $i++){
+    echo "<br>";
+    echo "My name is  {$info[$i]["name"]}  and I am   {$info[$i]["age"]} years old.";
+
+    // foreach($info[$i] as $key => $value){
+    //     echo "<br>";
+    //     echo "my $key is $value";
+    // }
+}
 
 
 
 
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <?php include 'components/navbar.html'; ?>
+    <main>
+        <?php foreach($progLang as $lang) {?>
+            <h3 style="color: blue;">I am learning <?php echo $lang; ?></h3>
+        <?php } ?>
+
+
+        <table border="1" style="border-collapse: collapse; width: 100%; text-align: left;">
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Height</th>
+                <th>Skin Color</th>
+                
+            </tr>
+            <tbody>
+                    <?php for ($i=0; $i < count($info); $i++) { ?>
+                    <tr>
+                        <td> <?php echo ($info[$i]['name']) ?> </td>
+                        <td> <?php echo ($info[$i]['age']) ?> </td>
+                        <td> <?php echo ($info[$i]['gender']) ?> </td>
+                        <td> <?php echo ($info[$i]['height']) ?> </td>
+                        <td> <?php echo ($info[$i]['skinColor']) ?> </td>
+
+                    </tr>
+
+                    <?php } ?>
+                </tbody>
+            </table>
+    </main>
+    <?php include 'components/footer.html' ?>
+</body>
+</html>
